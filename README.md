@@ -1,22 +1,23 @@
 # Project: Permissions & Postgresql
 
-# Features - General
-- You have been supplied with two demos, each presenting a key new feature.
-    - One demonstrates how to restrict access to portions of your APIs data.
-    - The other demonstrates switching over to using postgres vs sqlite
-- Your job is to merge the functionality of both demos.
-- Customize your project to use different application features/models than what was used in demos.
-# Features - Django REST Framework
-- Make your site a DRF powered API as you did in previous lab.
-- Adjust project’s permissions so that only authenticated user’s have access to API.
-- Add a custom permission so that only appropriate users can update or delete it.
-    - Exactly what this means will depend on your application, so if you have any questions about “appropriate users” means reach out to TA/Instructor.
-    - Add ability to switch user’s directly from browsable API.
+# Feature Tasks and Requirements
+# Features - Django
+- Add JWT Authentication to your API.
+    - Install needed libraries in project configuration and/or site settings.
+    - Keep any pre-existing authentication so DRF Browsable API still usable.
+        - Install needed libraries in project configuration and/or site settings.
 # Features - Docker
-- NOTE Refer to demo for built out Dockerfile and docker-compose.yml examples.
-- create Dockerfile based off python:3.10-slim
-- create docker-compose.yml to run Django app as a web service.
-- enter docker-compose up --build to start your site.
-- add postgres as a service
-- Note: It is not required to include a volume so that data can persist when container is shut down.
-- Go to browsable api and confirm site properly restricts users based on their permissions.
+- Switch to using Gunicorn instead of Django’s built in development server.
+    - mind the number of workers to avoid sluggishness
+- Warning You will run into styling issues when you switch over to Gunicorn.
+    - On Django side you’ll need to properly handle static files using Whitenoise
+# Storage Options
+- Your choice of SQLite or PostgreSQL
+- Adjust docker-compose.yml so that data is persisted in a volume outside of container.
+    - These steps are different depending on whether SQLite or PostgreSQL is being used.
+
+# Steps to manually test(screenshot for thunderclient)
+![](thunderclient.png)
+
+
+
